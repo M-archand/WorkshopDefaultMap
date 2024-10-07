@@ -1,10 +1,10 @@
-namespace WorkshopDefaultMap;
-
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Timers;
 using Microsoft.Extensions.Logging;
 using System.Text.Json.Serialization;
+
+namespace WorkshopDefaultMap;
 
 public class WorkshopDefaultMapConfig : BasePluginConfig
 {
@@ -60,7 +60,6 @@ public class WorkshopDefaultMap : BasePlugin, IPluginConfig<WorkshopDefaultMapCo
             
             g_TimerChangeMap?.Kill();
             g_TimerChangeMap = AddTimer(1.0f, ChangeMap);
-            Logger.LogInformation($"Changing map to {Config.Map}...");
         }
     }
 
@@ -75,14 +74,12 @@ public class WorkshopDefaultMap : BasePlugin, IPluginConfig<WorkshopDefaultMapCo
         if(!ulong.TryParse(Config.Map, out ulong mapid))
         {
             Server.ExecuteCommand($"ds_workshop_changelevel {Config.Map}");
-            Logger.LogInformation($"Changed map to {Config.Map}.");
             return;
         }
 
-        if(g_uOldMapId == mapid) return; // Hacky fix till there is a way to find workshop id of a map.
+        if(g_uOldMapId == mapid) return;
         
         Server.ExecuteCommand($"host_workshop_map {mapid}");
-        Logger.LogInformation($"Changed map to mapid {mapid}.");
         g_uOldMapId = mapid;
     }
 
