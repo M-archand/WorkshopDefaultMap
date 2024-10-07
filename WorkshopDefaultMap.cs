@@ -11,15 +11,14 @@ public class WorkshopDefaultMapConfig : BasePluginConfig
     public override int Version { get; set; } = 1;
 
     [JsonPropertyName("Map")]
-    public string Map { get; set; } = "Awp_arena_vlgbeta_gg2";
+    public string Map { get; set; } = "3319154265";
 }
 
 public class WorkshopDefaultMap : BasePlugin, IPluginConfig<WorkshopDefaultMapConfig>
 {
-    public override string ModuleName => "Workshop Collection Default Map";
+    public override string ModuleName => "Workshop Default Map";
     public override string ModuleVersion => "0.4";
-    public override string ModuleAuthor => "Cruze";
-    public override string ModuleDescription => "Sets default map after server restart";
+    public override string ModuleAuthor => "Cruze03";
 
     private bool g_bServerStarted = true;
     private ulong g_uOldMapId;
