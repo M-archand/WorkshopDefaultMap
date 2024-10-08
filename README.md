@@ -9,3 +9,6 @@ Installation:
 
 > [!IMPORTANT]
 > • Make sure the map is in the workshop collection you set using the `host_workshop_collection` variable.
+
+> [!IMPORTANT]
+> • This version isn't really any different from Cruze's version, it just removes some unnecessary logging and is compiled against CSS v276.
